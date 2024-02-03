@@ -2,14 +2,14 @@
   font-family: Liga SFMono Nerd Font;
   font-weight: bold;
   font-size: 12px;
+  min-height: 0;
 }
 
 window#waybar {
   /* border: solid 2px rgba(171, 178, 191, 0.6); */
   border: none;
-  border-radius: 8px;
-  background-color: rgba(40, 44, 52, 0);
-  color: #abb2bf;
+  background-color: rgba(35, 38, 52, 0.4);
+  color: #c6d0f5;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
@@ -17,34 +17,34 @@ window#waybar {
 .modules-left,
 .modules-center,
 .modules-right {
-  border: solid 2px rgba(171, 178, 191, 0.6);
-  background-color: rgba(40, 44, 52, 0.7);
-  border-radius: 8px;
+  background: transparent;
+  margin: 0px;
 }
 
-/* #workspaces { */
-/* } */
+#workspaces {
+  margin: 5px;
+  padding: 4px 1px;
+  border-radius: 10px;
+  opacity: 0.8;
+}
 
 #workspaces button {
   padding: 0 5px;
-  color: #59626f;
-  border-radius: 0;
+  margin: 0 3px;
+  border-radius: 12px;
+  background-color: #626880;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.8;
+  color: #838ba7;
 }
 
 #workspaces button.active {
-  border-radius: 0;
-  padding: 0 5px;
-  color: #a9b1d6;
-}
-
-#workspaces button:hover {
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-#workspaces button.urgent {
-  border-radius: 0;
-  background-color: #e06c75;
+  background-color: #737994;
+  border-radius: 10px;
+  min-width: 30px;
+  background-size: 400% 400%;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
 }
 
 #custom-wl-gammarelay-temperature,
@@ -56,25 +56,31 @@ window#waybar {
 #custom-media,
 #custom-app-launcher,
 #tray {
-  padding: 0 10px;
+  background-color: rgba(48, 52, 70, 1);
+  border-radius: 8px;
+  margin: 5px;
+  padding: 5px 15px;
 }
 
-/* #custom-app-launcher { */
-/*   color: #b48ead; */
-/* } */
+#custom-power-off {
+  background: #e78284;
+  margin-left: 10px;
+  border-radius: 6px;
+  padding-left: 11px;
+}
 
-#window,
-#workspaces {
-  margin: 0 4px;
+#custom-app-launcher {
+  background: #c6d0f5;
+  color: #303446;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
+.modules-left>widget:first-child>#workspaces {
   margin-left: 0;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
+.modules-right>widget:last-child>#workspaces {
   margin-right: 0;
 }
 
@@ -92,18 +98,18 @@ window#waybar {
 }
 
 #battery.warning:not(.charging) {
-  color: #f7768e;
+  color: #e78284;
 }
 
 @keyframes blink {
   to {
-    background-color: #f7768e;
+    background-color: #e78284;
     color: #1a1b26;
   }
 }
 
 #battery.critical:not(.charging) {
-  color: #f7768e;
+  color: #e78284;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
@@ -141,13 +147,13 @@ window#waybar {
   margin: 0 0px;
 }
 
-#keyboard-state > label {
+#keyboard-state>label {
   border-radius: 8px;
   padding: 0;
   margin: 0;
 }
 
-#keyboard-state > label.locked {
+#keyboard-state>label.locked {
   border-radius: 8px;
   background: #e06c75;
   padding: 0 10px 0 9px;

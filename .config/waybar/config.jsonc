@@ -1,10 +1,11 @@
 {
-  "height": 25,
-  "margin": "10 10 0 10",
-  // "margin": "0",
+  "height": 15,
+  // "margin": "10 10 0 10",
+  "margin": "0",
   "layer": "top",
-  "modules-left": ["custom/app-launcher", "hyprland/workspaces"],
-  "modules-center": ["custom/media"],
+  "position": "bottom",
+  "modules-left": ["custom/app-launcher", "custom/media"],
+  "modules-center": ["hyprland/workspaces"],
   "modules-right": [
     "tray",
     "keyboard-state",
@@ -14,8 +15,20 @@
     "network",
     "custom/power-off"
   ],
+  // "hyprland/workspaces": {
+  //   "all-outputs": true
+  // },
+
   "hyprland/workspaces": {
-    "all-outputs": true
+    "on-click": "activate",
+    "active-only": false,
+    "all-outputs": true,
+    "format": "{icon}",
+    "format-icons": {
+      "urgent": "",
+      "active": "",
+      "default": ""
+    }
   },
   "hyprland/window": {
     "max-length": 50
@@ -29,7 +42,7 @@
     }
   },
   "clock": {
-    "format": "  {:%a %d %H:%M}"
+    "format": " {:%a %d %H:%M}"
   },
   "tray": {
     "spacing": 10
