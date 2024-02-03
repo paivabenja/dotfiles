@@ -1,0 +1,155 @@
+* {
+  font-family: Liga SFMono Nerd Font;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+window#waybar {
+  /* border: solid 2px rgba(171, 178, 191, 0.6); */
+  border: none;
+  border-radius: 8px;
+  background-color: rgba(40, 44, 52, 0);
+  color: #abb2bf;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+  border: solid 2px rgba(171, 178, 191, 0.6);
+  background-color: rgba(40, 44, 52, 0.7);
+  border-radius: 8px;
+}
+
+/* #workspaces { */
+/* } */
+
+#workspaces button {
+  padding: 0 5px;
+  color: #59626f;
+  border-radius: 0;
+}
+
+#workspaces button.active {
+  border-radius: 0;
+  padding: 0 5px;
+  color: #a9b1d6;
+}
+
+#workspaces button:hover {
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#workspaces button.urgent {
+  border-radius: 0;
+  background-color: #e06c75;
+}
+
+#custom-wl-gammarelay-temperature,
+#custom-power-off,
+#clock,
+#battery,
+#network,
+#wireplumber,
+#custom-media,
+#custom-app-launcher,
+#tray {
+  padding: 0 10px;
+}
+
+/* #custom-app-launcher { */
+/*   color: #b48ead; */
+/* } */
+
+#window,
+#workspaces {
+  margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
+/* #clock { */
+/*   color: #ff9e64; */
+/* } */
+
+/* #battery { */
+/*   color: #bb9af7; */
+/* } */
+
+#battery.charging,
+#battery.plugged {
+  color: #b4f9f8;
+}
+
+#battery.warning:not(.charging) {
+  color: #f7768e;
+}
+
+@keyframes blink {
+  to {
+    background-color: #f7768e;
+    color: #1a1b26;
+  }
+}
+
+#battery.critical:not(.charging) {
+  color: #f7768e;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* #network { */
+/*   color: #2ac3de; */
+/* } */
+
+#network.disconnected {
+  color: #565f89;
+}
+
+/* #wireplumber { */
+/*   color: #f7768e; */
+/* } */
+
+#wireplumber.muted {
+  color: #565f89;
+}
+
+#custom-media {
+  min-width: 100px;
+}
+
+#tray {
+  padding: 0;
+  margin: 0;
+}
+
+#keyboard-state {
+  padding: 0 0px;
+  margin: 0 0px;
+}
+
+#keyboard-state > label {
+  border-radius: 8px;
+  padding: 0;
+  margin: 0;
+}
+
+#keyboard-state > label.locked {
+  border-radius: 8px;
+  background: #e06c75;
+  padding: 0 10px 0 9px;
+  color: black;
+}
