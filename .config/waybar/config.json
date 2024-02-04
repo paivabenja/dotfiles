@@ -1,0 +1,119 @@
+{
+  "height": 15,
+  "margin": "0",
+  "layer": "top",
+  "position": "bottom",
+  "modules-left": [
+    "custom/app-launcher",
+    "custom/media",
+    "wireplumber",
+    "bluetooth"
+  ],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": [
+    "tray",
+    "keyboard-state",
+    "custom/naruto",
+    "clock",
+    "battery",
+    "network",
+    "custom/power-off"
+  ],
+  "bluetooth": {
+    "format": "\uf294 {status}",
+    "format-connected": "\uf294 {device_alias}",
+    "format-connected-battery": "\uf294 {device_alias} {device_battery_percentage}%",
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+    "on-click": "~/.config/rofi/scripts/rofi-bluetooth"
+  },
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "active-only": false,
+    "all-outputs": true,
+    "persistent-workspaces": {
+      "1": ["eDP-1"],
+      "2": ["HDMI-A-1"],
+      "3": ["HDMI-A-1"],
+      "4": ["HDMI-A-1"],
+      "5": ["HDMI-A-1"]
+    },
+    "format": "{}",
+    "format-icons": {
+      "urgent": "",
+      "active": "",
+      "default": ""
+    }
+  },
+  "battery": {
+    "format": "{icon} {capacity}%",
+    "format-icons": ["\uf244 ", "\uf243 ", "\uf242 ", "\uf241 ", "\uf240 "],
+    "states": {
+      "warning": 30,
+      "critical": 10
+    }
+  },
+  "clock": {
+    "format": "\uf4ab  {:%a %d %H:%M}"
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "wireplumber": {
+    "format": "{icon} {volume}%",
+    "format-muted": "\uf026",
+    "on-click": "pavucontrol",
+    "format-icons": ["\uf026", "\uf027", "\uf028"],
+    "on-scroll-down": "pamixer -i 1",
+    "on-scroll-up": "pamixer -d 1"
+  },
+  "custom/media": {
+    "format": "{icon}  {}",
+    "return-type": "json",
+    "max-length": 30,
+    "format-icons": {
+      "spotify": "\uf1bc",
+      "default": "\uf500"
+    },
+    "escape": true,
+    "on-click": "playerctl play-pause --player=spotify",
+    "on-click-right": "playerctl next --player=spotify",
+    "exec": "$HOME/.config/waybar/scripts/mediaplayer.py --player spotify 2> /dev/null"
+  },
+  "custom/naruto": {
+    "format": "\u3297 {}",
+    "on-click": "chromium https://www3.animeflv.net/ver/naruto-shippuden-hd-300",
+    "on-click-right": "python3 ~/.config/waybar/scripts/next_chapter.py next",
+    "on-click-middle": "python3 ~/.config/waybar/scripts/next_chapter.py prev",
+    "interval": 1000,
+    "exec": "python3 ~/.config/waybar/scripts/check_chapter.py"
+  },
+  "network": {
+    "format-ethernet": "\udb80\ude00 {ifname}",
+    "format-wifi": "\udb82\udd28 {essid}",
+    "format-disconnected": "\udb82\udd2d disconnected",
+    "on-click": "sleep 0.2 && /home/paivita/.config/waybar/scripts/rofi-wifi-menu.sh &"
+  },
+  "custom/app-launcher": {
+    "format": "\uf20b",
+    "on-click": "sleep 0.2 && rofi -show drun -icon-theme \"Colloid-nord\" -show-icons &"
+  },
+  "custom/power-off": {
+    "on-click": "sleep 0.2 && rofi -show powermenu -modi powermenu:~/.config/waybar/scripts/rofi-power-menu.sh &",
+    "format": "\u23fb"
+  },
+  "keyboard-state": {
+    "numlock": true,
+    "capslock": true,
+    "format": {
+      "numlock": "{icon}",
+      "capslock": "{icon}"
+    },
+    "format-icons": {
+      "locked": "\uf023",
+      "unlocked": ""
+    }
+  }
+}

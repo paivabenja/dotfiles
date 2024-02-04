@@ -8,7 +8,7 @@
 window#waybar {
   /* border: solid 2px rgba(171, 178, 191, 0.6); */
   border: none;
-  background-color: rgba(35, 38, 52, 0.4);
+  background-color: rgba(35, 38, 52, 0);
   color: #c6d0f5;
   transition-property: background-color;
   transition-duration: 0.5s;
@@ -25,52 +25,78 @@ window#waybar {
   margin: 5px;
   padding: 4px 1px;
   border-radius: 10px;
-  opacity: 0.8;
+  background-color: rgba(65, 69, 89, 1);
 }
 
 #workspaces button {
   padding: 0 5px;
   margin: 0 3px;
   border-radius: 12px;
-  background-color: #626880;
+  background-color: #51576d;
   transition: all 0.3s ease-in-out;
-  opacity: 0.8;
   color: #838ba7;
-}
-
-#workspaces button.active {
-  background-color: #737994;
-  border-radius: 10px;
-  min-width: 30px;
-  background-size: 400% 400%;
-  transition: all 0.3s ease-in-out;
+  min-width: 15px;
   opacity: 1;
 }
 
-#custom-wl-gammarelay-temperature,
+#workspaces button.active {
+  background-color: #8caaee;
+  color: #c6d0f5;
+  border-radius: 10px;
+  min-width: 30px;
+  background-size: 400% 400%;
+  opacity: 0.8;
+  transition: all 0.3s ease-in-out;
+}
+
+#custom-naruto,
 #custom-power-off,
 #clock,
 #battery,
 #network,
+#keyboard-state,
 #wireplumber,
 #custom-media,
 #custom-app-launcher,
+#bluetooth,
 #tray {
-  background-color: rgba(48, 52, 70, 1);
+  background-color: rgba(65, 69, 89, 1);
   border-radius: 8px;
   margin: 5px;
   padding: 5px 15px;
 }
 
+#tray {
+  background: transparent;
+}
+
+#keyboard-state {
+  background: transparent;
+  min-width: 0;
+  color: #e78284;
+  margin: 0;
+  padding: 5px;
+}
+
+#keyboard-state label {
+  min-width: 0;
+  margin: 0 5px;
+  background: transparent;
+}
+
+#keyboard-state label.locked {
+  min-width: 0;
+  background: transparent;
+}
+
 #custom-power-off {
   background: #e78284;
-  margin-left: 10px;
-  border-radius: 6px;
+  color: #303446;
   padding-left: 11px;
 }
 
 #custom-app-launcher {
-  background: #c6d0f5;
+  background: #8caaee;
   color: #303446;
 }
 
@@ -131,31 +157,4 @@ window#waybar {
 
 #wireplumber.muted {
   color: #565f89;
-}
-
-#custom-media {
-  min-width: 100px;
-}
-
-#tray {
-  padding: 0;
-  margin: 0;
-}
-
-#keyboard-state {
-  padding: 0 0px;
-  margin: 0 0px;
-}
-
-#keyboard-state>label {
-  border-radius: 8px;
-  padding: 0;
-  margin: 0;
-}
-
-#keyboard-state>label.locked {
-  border-radius: 8px;
-  background: #e06c75;
-  padding: 0 10px 0 9px;
-  color: black;
 }

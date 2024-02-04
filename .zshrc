@@ -8,6 +8,9 @@ export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=nvim
 export MANPATH="/usr/local/man:$MANPATH"
 
+export QT_QPA_PLATFORM=wayland
+export QT_QPA_PLATFORMTHEME=qt5ct
+
 COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -26,6 +29,6 @@ alias ls="exa --icons"
 alias ll="exa -lah --icons"
 
 #Display random gifs
-# kitten icat --align left $(find $HOME/.config/neofetch/gifs/ -name "*.gif" | sort -R | head -1)
+kitten icat --align left $(find $HOME/.config/neofetch/gifs/ -name "*.gif" | sort -R | head -1)
 
 eval "$(starship init zsh)"
