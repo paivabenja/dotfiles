@@ -1,9 +1,14 @@
-# ~/.config/starship.toml
+format = """$character"""
+right_format = """$all"""
+add_newline = false
 
 [character]
-format = '  $symbol '
+success_symbol = "[ ꩜ ](fg:black bg:blue) [~](bg:none)"
+error_symbol = "[ ꩜ ](fg:black bg:red) [~](bg:none)"
+vimcmd_symbol = "[ ꩜ ](fg:black bg:white) [~](bg:none)"
 
 [directory]
-format = '  [$path]($style)[$read_only]($read_only_style) '
+style = "purple"
+format = '[$path]($style)[$read_only]($read_only_style) '
 truncation_length = 8
 truncation_symbol = '…/'

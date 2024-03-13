@@ -1,15 +1,8 @@
 import subprocess
-from typing import Any, Dict
-from kitty.boss import Boss
-from kitty.window import Window
 
+stdout = subprocess.run(
+    ["gsettings", "get", "org.gnome.desktop.interface", "color-scheme"], capture_output=True).stdout
 
-def on_close(boss: Boss, window: Window, data: Dict[str, Any]) -> None:
-    if window.default_title != "tmux":
-        return
+tema = stdout.__str__().split("'")[1]
 
-    session_id = window.child_title.split(':')[0]
-    subprocess.run(["tmux", "kill-session", "-t", session_id])
-
-    # print("\n child title: ", window.child_title)
-    # print("\n session id: ", session_id)
+print(tema)

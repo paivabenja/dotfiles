@@ -1,0 +1,20 @@
+import = ["~/.config/alacritty/themes/ayu_dark.toml"]
+# import = ["~/.config/alacritty/themes/ayu_light.toml"]
+
+[colors]
+transparent_background_colors = true
+
+[env]
+term = "xterm-256color"
+
+[font]
+size = 12
+normal = { family = "SFMono nerd font", style = "semibold" }
+bold = { family = "SFMono nerd font", style = "bold" }
+italic = { family = "SFMono nerd font", style = "italic" }
+bold_italic = { family = "SFMono nerd font", style = "bold_italic" }
+
+[window]
+opacity = 0.95
+decorations = "None"
+padding = { x = 60 , y = 60 }
